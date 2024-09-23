@@ -1,0 +1,352 @@
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Hero Section with Gradient Background */
+header.hero {
+    height: 100vh;
+    background: linear-gradient(135deg, #ff4b2b 0%, #ff416c 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+header .logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+/* Hamburger Icon for Small Screens */
+.hamburger {
+    color: #000;
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.hamburger div {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Navigation Links */
+.nav-links {
+    display: none; /* Initially hide the menu */
+    flex-direction: column; /* Stack items vertically */
+    position: absolute; /* Position the dropdown */
+    top: 60px; /* Adjust based on your header height */
+    right: 20px; /* Align with the hamburger */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    padding: 15px; /* Padding for spacing */
+    border-radius: 8px; /* Rounded corners */
+    z-index: 1000; /* Ensure it's on top */
+}
+
+.nav-links.active {
+    display: flex; /* Show the menu when active */
+}
+
+.nav-links li {
+    margin-left: 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.nav-links a:hover {
+    color: #ff416c;
+}
+
+/* Responsive Menu for Small Screens */
+.nav-links.mobile {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 10px 20px;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.nav-links.mobile li {
+    margin: 10px 0;
+}
+
+.nav-links.mobile.active {
+    display: flex;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero-btn {
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #ff416c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-btn:hover {
+    background-color: #ff416c;
+    color: #fff;
+    transform: translateY(-5px);
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    font-size: 1rem;
+    color: #fff;
+    animation: bounce 2s infinite;
+}
+
+/* Rides Section with Fancy Hover Effects */
+.rides-section {
+    padding: 80px 20px;
+    background: #1f1f1f;
+    text-align: center;
+}
+
+.rides-section h2 {
+    font-size: 2rem;
+    color: #ff416c;
+    margin-bottom: 40px;
+}
+
+.rides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.ride-card {
+    background: #333;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ride-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+}
+
+.ride-card img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.ride-info {
+    padding: 15px;
+    color: #fff;
+}
+
+.ride-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ff416c;
+}
+
+/* Showcase Section with 3D Hover */
+.showcase-section {
+    padding: 80px 20px;
+    background-color: #282828;
+    text-align: center;
+}
+
+.bike-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.bike-item {
+    position: relative;
+    transform: perspective(1000px) rotateY(0deg);
+    transition: transform 0.5s ease;
+}
+
+.bike-item:hover {
+    transform: perspective(1000px) rotateY(15deg);
+}
+
+.bike-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.bike-item h4 {
+    margin-top: 10px;
+    color: #ff416c;
+}
+
+/* Community Section with Modern Look */
+.community-section {
+    padding: 80px 20px;
+    background-color: #1f1f1f;
+}
+
+.community-section h2 {
+    color: #ff416c;
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+.discussion-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.discussion {
+    background: #333;
+    padding: 20px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.discussion:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+}
+
+footer {
+    padding: 20px;
+    background: #000;
+    text-align: center;
+    color: #fff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Responsive Styling for Small Screens */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.mobile.active {
+        display: flex;
+    }
+
+    header .logo {
+        font-size: 1.8rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .hero-btn {
+        padding: 10px 20px;
+    }
+
+    .rides-section h2, .community-section h2, .showcase-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .rides-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bike-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .discussion-board {
+        grid-template-columns: 1fr;
+    }
+
+    .scroll-down {
+        font-size: 0.9rem;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+}
